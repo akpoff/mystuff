@@ -1,0 +1,4 @@
+The USRP Hardware Driver(tm) (UHD) software API supports application development on
+all USRP SDR products. UHD offers cross-platform support for multiple industry
+standard development environments and frameworks, including RFNoC, GNU Radio,
+LabVIEW and Matlab/Simulink.

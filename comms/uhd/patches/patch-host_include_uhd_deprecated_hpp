@@ -1,0 +1,11 @@
+$OpenBSD$
+--- host/include/uhd/deprecated.hpp.orig	Fri Feb 26 23:09:12 2016
++++ host/include/uhd/deprecated.hpp	Fri Feb 26 23:09:41 2016
+@@ -22,6 +22,7 @@
+ #ifndef INCLUDED_UHD_TYPES_OTW_TYPE_HPP
+ #define INCLUDED_UHD_TYPES_OTW_TYPE_HPP
+ 
++#include <cstddef>
+ #include <uhd/config.hpp>
+ 
+ namespace uhd{
