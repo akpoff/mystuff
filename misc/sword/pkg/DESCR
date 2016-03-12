@@ -1,1 +1,3 @@
 The SWORD Engine is a software framework that allows research manipulation of Biblical texts. There are a number of projects that use The SWORD Engine, including Bibletime, Xiphos, PocketSword and many others. Many of these projects already include The SWORD Engine in their distribution, so only download if you were instructed to do so, or are a software developer wishing to develop Bible software.
+
+Also includes the command line utility diatheke for working with texts.
