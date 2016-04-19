@@ -22,7 +22,7 @@ DISTFILES =		kcaldav.tgz
 BUILD_DEPENDS =		www/kcgi
 RUN_DEPENDS-cgi =	www/kcaldav
 
-FAKE_FLAGS =		PREFIX=${WRKDIR}/fake-amd64/usr/local WWWPREFIX=${WRKDIR}/fake-amd64/var/www
+FAKE_FLAGS =		PREFIX=${WRKINST}${TRUEPREFIX} WWWPREFIX=${WRKINST}/var/www
 
 # no doc on how to run tests
 NO_TEST =		Yes
