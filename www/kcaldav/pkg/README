@@ -1,0 +1,29 @@
+$OpenBSD$
+
++-----------------------------------------------------------------------
+| Running ${FULLPKGNAME} on OpenBSD
++-----------------------------------------------------------------------
+
+Install Note
+============
+  This package installs the user-database tools. You need
+  to install kcaldav-cgi to do much that's useful.
+
+Security
+========
+  kcaldav.cgi uses http authentication for user security.
+  Install a tls certificate to ensure privacy of connection.
+
+Administrator Quick Start
+=========================
+  Create users by running "kcaldav.passwd -C -u <user>".
+  Read kcaldav.passwd(1) for more details about creating
+  new calenders for users, changing email address and other
+  options.
+
+User Quick Start
+================
+  User's can manage their account settings, create calendars
+  and find the URL for use with their calendar application
+  by browsing to: http://localhost/kcaldav/home.html
+
