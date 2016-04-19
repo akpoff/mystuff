@@ -1,6 +1,6 @@
 $OpenBSD$
 --- Makefile.orig	Thu Mar  3 13:22:28 2016
-+++ Makefile	Tue Apr 19 07:31:08 2016
++++ Makefile	Tue Apr 19 07:41:49 2016
 @@ -4,6 +4,9 @@
  # I have added defaults for all of the systems that I use.
  # Good luck!
@@ -28,3 +28,12 @@ $OpenBSD$
  PREFIX		 = /usr/local
  
  # Add any special dependency directives here.
+@@ -52,7 +56,7 @@ PREFIX		 = /usr/local
+ #### For OpenBSD:
+ LIBS		 = -lexpat -lm -lsqlite3
+ STATIC		 = -static
+-CPPFLAGS	+= -I/usr/local/include -DLOGTIMESTAMP=1 -DDEBUG=1
++CPPFLAGS	+= -I/usr/local/include -DLOGTIMESTAMP=1 -DDEBUG=0
+ BINLDFLAGS	 = -L/usr/local/lib
+ 
+ #### For Mac OS X:
