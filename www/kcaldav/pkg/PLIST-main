@@ -1,0 +1,7 @@
+@comment $OpenBSD$
+@bin bin/kcaldav.passwd
+include/libkcaldav.h
+lib/libkcaldav.a
+@man man/man1/kcaldav.passwd.1
+@man man/man3/libkcaldav.3
+@man man/man8/kcaldav.8

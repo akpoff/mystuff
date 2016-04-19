@@ -1,0 +1,14 @@
+@comment $OpenBSD$
+caldav/
+@bin cgi-bin/kcaldav
+@bin cgi-bin/kcaldav.cgi
+htdocs/kcaldav/
+htdocs/kcaldav/collection.html
+htdocs/kcaldav/collection.min.js
+htdocs/kcaldav/home.html
+htdocs/kcaldav/home.min.js
+htdocs/kcaldav/md5.min.js
+htdocs/kcaldav/script.min.js
+htdocs/kcaldav/style.css
+@mode a+w
+tmp/
