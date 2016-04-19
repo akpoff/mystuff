@@ -20,19 +20,13 @@ MASTER_SITES =		http://kristaps.bsd.lv/kcaldav/snapshots/
 DISTFILES =		kcaldav.tgz
 
 BUILD_DEPENDS =		www/kcgi
-RUN_DEPENDS-cgi =	www/kcaldav
 
-FAKE_FLAGS =		PREFIX=${WRKINST}${TRUEPREFIX} WWWPREFIX=${WRKINST}/var/www
+FAKE_FLAGS =		PREFIX=${WRKINST}${TRUEPREFIX} WWWPREFIX=${WRKINST}/${VARBASE}/www
 
 # no doc on how to run tests
 NO_TEST =		Yes
 
 ALL_TARGET =		all libkcaldav.a
 INSTALL_TARGET =	install installcgi
-
-post-install:
-	@export ${FAKE_FLAGS}; \
-		mkdir -p $$WWWPREFIX/tmp; \
-		chmod a+w $$WWWPREFIX/tmp;
 
 .include <bsd.port.mk>
