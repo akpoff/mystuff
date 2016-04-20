@@ -2,9 +2,7 @@
 
 COMMENT =		a simple, safe, and minimal CalDAV server
 
-V=			0.1.4
-DISTNAME =		kcaldav-${V}
-PKGNAME=		kcaldav-${V}
+DISTNAME =		kcaldav-0.1.4
 CATEGORIES =		www
 
 HOMEPAGE =		http://kristaps.bsd.lv/kcaldav/
