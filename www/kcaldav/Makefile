@@ -15,7 +15,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 WANTLIB +=		c expat m sqlite3
 
 MASTER_SITES =		http://kristaps.bsd.lv/kcaldav/snapshots/
-DISTFILES =		kcaldav.tgz
+EXTRACT_SUFX =		.tgz
 
 BUILD_DEPENDS =		www/kcgi
 
