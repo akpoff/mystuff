@@ -18,8 +18,3 @@ htdocs/kcaldav/home.min.js
 htdocs/kcaldav/md5.min.js
 htdocs/kcaldav/script.min.js
 htdocs/kcaldav/style.css
-@owner www
-@mode 755
-@dir tmp/
-@mode
-@owner
