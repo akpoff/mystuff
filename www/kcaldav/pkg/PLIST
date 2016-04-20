@@ -20,6 +20,6 @@ htdocs/kcaldav/script.min.js
 htdocs/kcaldav/style.css
 @owner www
 @mode 755
-tmp/
+@dir tmp/
 @mode
 @owner

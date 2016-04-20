@@ -6,8 +6,9 @@ $OpenBSD$
 
 Install Note
 ============
-  This package installs the user-database tools. You need
-  to install kcaldav-cgi to do much that's useful.
+  /var/www/tmp must exist when running in chroot. sqlite3(3)
+  must have a tmp dir in addition to the directory where
+  the db file exists.
 
 Security
 ========
