@@ -1,25 +1,34 @@
 # $OpenBSD: Makefile,v 1.49 2016/01/20 16:27:42 kili Exp $
 
-COMMENT =		nearly universal document converter
+COMMENT-main =		document converter written in Haskell
+COMMENT-lib =		document converter library written in Haskell
 
 DISTNAME =		pandoc-1.17.1
-PKGNAME =		${DISTNAME}
+PKGNAME-main =		${DISTNAME}
+PKGNAME-lib =		${DISTNAME:S,-,-lib-,}
+REVISION-lib =		1
 CATEGORIES =		converters
 HOMEPAGE =		http://pandoc.org/
 MAINTAINER =		Aaron Poffenberger <akp@hypernote.com>
 
+MULTI_PACKAGES =		-main -lib
+
 # GPL 2
 PERMIT_PACKAGE_CDROM =	Yes
 
-WANTLIB +=		c m pthread util z
+WANTLIB-main +=		${WANTLIB} c m pthread util z
+WANTLIB-lib =
 
 MODULES =		lang/ghc converters/libiconv
-MODGHC_BUILD =		cabal sandbox hackage haddock nort
+MODGHC_BUILD =		cabal sandbox hackage haddock register nort
+
+MODGHC_PACKAGE_KEY =	DySZA1jWzPhD7cLOtUVZ80
 
 # Required because of the nort tag in MODGHC_BUILD
 SUBST_VARS +=		MODGHC_PACKAGE_KEY
 
-BUILD_DEPENDS =		devel/hs-aeson \
+BUILD_DEPENDS-lib =	${RUN_DEPENDS-lib}
+RUN_DEPENDS-lib =	devel/hs-aeson \
 			devel/hs-base64-bytestring \
 			devel/hs-data-default \
 			devel/hs-extensible-exceptions \
@@ -33,6 +42,11 @@ BUILD_DEPENDS =		devel/hs-aeson \
 			devel/hs-syb \
 			devel/hs-unordered-containers \
 			devel/hs-vector
+LIB_DEPENDS-main =	${LIB_DEPENDS}
+
+# MODGHC_BUILD contains 'nort', an explicit dependency is needed for
+# the -lib subpackage (plus the tweaks to MODGHC_SETUP_CONF_ARGS below).
+RUN_DEPENDS-lib +=		lang/ghc=${MODGHC_VER}
 
 post-install:
 	@${INSTALL_MAN} ${WRKSRC}/man/pandoc.1 ${PREFIX}/man/man1
