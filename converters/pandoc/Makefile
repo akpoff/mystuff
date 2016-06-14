@@ -6,6 +6,7 @@ DISTNAME =		pandoc-1.17.1
 PKGNAME =		${DISTNAME}
 CATEGORIES =		converters
 HOMEPAGE =		http://pandoc.org/
+MAINTAINER =		Aaron Poffenberger <akp@hypernote.com>
 
 # GPL 2
 PERMIT_PACKAGE_CDROM =	Yes
@@ -13,8 +14,7 @@ PERMIT_PACKAGE_CDROM =	Yes
 WANTLIB +=		c m pthread util z
 
 MODULES =		lang/ghc converters/libiconv
-#devel/cabal-install
-MODGHC_BUILD =		cabal hackage haddock nort
+MODGHC_BUILD =		cabal sandbox hackage haddock nort
 
 # Required because of the nort tag in MODGHC_BUILD
 SUBST_VARS +=		MODGHC_PACKAGE_KEY
@@ -34,20 +34,6 @@ BUILD_DEPENDS =		devel/hs-aeson \
 			devel/hs-unordered-containers \
 			devel/hs-vector
 
-# pre-configure:
-# 	mkdir -p ${WRKBUILD}
-# 	cd ${WRKBUILD} && \
-# 	cabal sandbox init && \
-# 	cabal update && \
-# 	cabal install --only-dependencies
-
-pre-configure:
-	mkdir -p ${WRKBUILD}
-	cd ${WRKBUILD} && \
-	cabal sandbox init && \
-	cabal update && \
-	cabal install --only-dependencies --enable-library-profiling
-
 post-install:
 	@${INSTALL_MAN} ${WRKSRC}/man/pandoc.1 ${PREFIX}/man/man1
 
@@ -56,37 +42,8 @@ NO_TEST =	Yes
 
 .include <bsd.port.mk>
 
-MODGHC_SETUP_PROG = ${LOCALBASE}/bin/cabal
-
-MODCABAL_configure = \
-	cd ${WRKBUILD} && \
-	cabal sandbox init && \
-	cabal update && \
-	cabal install --only-dependencies --enable-library-profiling && \
-	exec ${SETENV} ${MAKE_ENV} ${MODGHC_SETUP_CONF_ENV} \
-		${MODGHC_SETUP_PROG} \
-			configure -v -g -O --prefix=${PREFIX} \
-			${MODGHC_SETUP_CONF_ARGS}
-
-# MODGHC_BUILD_TARGET = \
-# 	cd ${WRKBUILD} && ${SETENV} ${MAKE_ENV} \
-# 		${MODGHC_SETUP_PROG} build -v
-# .  if ${MODGHC_BUILD:L:Mhaddock}
-# MODGHC_BUILD_TARGET += \
-# 	;cd ${WRKBUILD} && ${SETENV} ${MAKE_ENV} \
-# 		${MODGHC_SETUP_PROG} haddock
-# .  endif
-# .  if ${MODGHC_BUILD:L:Mregister}
-# MODGHC_BUILD_TARGET += \
-# 	;cd ${WRKBUILD} && ${SETENV} ${MAKE_ENV} \
-# 		${MODGHC_SETUP_PROG} register --gen-script; \
-# 	cd ${WRKBUILD} && ${SETENV} ${MAKE_ENV} \
-# 		${MODGHC_SETUP_PROG} unregister --gen-script
-# .  endif
-
-
 # Override the 'nort' settings from ghc.port.mk, to get the correct
 # flags and directories for the -lib subpackage.
-#MODGHC_SETUP_CONF_ARGS +=	--enable-library-profiling
-#MODGHC_SETUP_CONF_ARGS +=	--docdir=\$$datadir/doc/hs-\$$pkgid
-#MODGHC_SETUP_CONF_ARGS +=	--libsubdir=ghc/\$$pkgid
+MODGHC_SETUP_CONF_ARGS +=	--enable-library-profiling
+MODGHC_SETUP_CONF_ARGS +=	--docdir=\$$datadir/doc/hs-\$$pkgid
+MODGHC_SETUP_CONF_ARGS +=	--libsubdir=ghc/\$$pkgid
