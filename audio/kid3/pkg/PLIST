@@ -1,4 +1,5 @@
-@comment $OpenBSD: PLIST,v 1.1.1.1 2013/02/05 14:00:16 zhuk Exp $
+@comment $OpenBSD$
+@comment
 @bin bin/kid3-cli
 @bin bin/kid3-qt
 lib/kid3/
