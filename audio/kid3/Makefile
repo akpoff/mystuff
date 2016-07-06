@@ -38,7 +38,6 @@ LIB_DEPENDS =	audio/chromaprint \
 		multimedia/gstreamer-0.10/core
 
 # set to use gstreamer-0.10 and disable
-# phonon to avoid known issue with gstreamer1
 # https://sourceforge.net/p/kid3/bugs/77/
 CONFIGURE_ARGS +=	-D"WITH_APPS=Qt;CLI" \
 			-DCMAKE_BUILD_TYPE=Release \
@@ -46,7 +45,6 @@ CONFIGURE_ARGS +=	-D"WITH_APPS=Qt;CLI" \
 			-DWITH_GSTREAMER_VERSION=0.10 \
 			-DWITH_MANDIR=man \
 			-DWITH_NO_MANCOMPRESS=ON \
-			-WITH_PHONON=OFF \
 			-DWITH_QT4=ON
 
 WRKBUILD =		${WRKSRC}
