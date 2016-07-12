@@ -1,4 +1,4 @@
-$OpenBSD$
+$OpenBSD: patch-Makefile,v 1.1.1.1 2016/04/20 15:06:08 jturner Exp $
 --- Makefile.orig	Thu Mar  3 13:22:28 2016
 +++ Makefile	Tue Apr 19 07:41:49 2016
 @@ -4,6 +4,9 @@
